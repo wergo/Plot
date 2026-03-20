@@ -5,6 +5,22 @@ Simple and versatile 2D plot package for JAVA, inspired by the Matlab 2D plot fu
   <img src="Werner's Testplot.png" width="50%" alt="Testplot"/>
 </p>
 
+## How to use
+
+Place the plot.jar file in your classpath and import the package:
+
+```java
+import goebl.plot.*;
+```
+
+To load the test plot, just double click the ```plot.jar``` file and the test plot will be displayed. You can also run the test plot from the command line:
+
+```bash
+java -jar plot.jar
+```
+
+Having the test plot displayed, you may use the mouse or keyboard to zoom, pan or print the figure (see below).
+
 ## Package Description
 
 The complete Java documentation is available at https://iwk.mdw.ac.at/goebl/plot/javadoc/. 
