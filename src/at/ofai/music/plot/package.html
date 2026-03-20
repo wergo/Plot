@@ -1,0 +1,95 @@
+<body>
+Provides JAVA classes for various basic 2D plot functions, similar to the <code>Matlab plot</code> implementation (JAVA 1.5.0 or higher required).
+<p>
+It implemented a similar hierarchy and very similar property commands as the <code>Matlab</code> implementation:<br>
+<center>
+{@link at.ofai.music.plot.Figure}<br>
+|<br>
+{@link at.ofai.music.plot.Axes}<br>
+|<br>
+{@link at.ofai.music.plot.PlottableObject}<br>
+/ | | | \<br>
+{@link at.ofai.music.plot.Plot}, {@link at.ofai.music.plot.Text}, 
+{@link at.ofai.music.plot.Rectangle}, {@link at.ofai.music.plot.Line}, 
+{@link at.ofai.music.plot.WormPlot}.
+</center>
+<p>
+The author aimed to give JAVA programmers the comfort of the very good <code>Matlab</code> plot packages.
+Most 2D plotting features including plots, lines, text fields, rectangle or 
+ellipse shapes are implemented.
+Nevertheless, many functionalities
+are missing or only coarsly implemented. 
+Please send suggestions, bug reports, etc to me 
+(werner dot goebl at ofai dot at).
+<p>
+Methods to create all possible {@link at.ofai.music.plot.PlottableObject}s
+(Plot, Line, etc.) are implemented in either a static way, e.g.:
+<pre>
+Figure.splot(new double[]{2, 3.4, 6, .1},"r:o").repaint(); 
+</pre>
+or in a non-static way, e.g.:
+<pre>
+Figure f = new Figure("My Test Figure");
+Plot p = f.plot(new double[]{2, 3.4, 6, .1},"k-.*");
+p.setMarkerFaceColor(Color.GREEN.brighter());
+p.setMarkerEdgeColor(Color.GREEN);
+f.repaint(); // to finally draw the whole thing to the screen
+</pre>
+[I decided to leave the repaint() command to the programmer so you can plot a
+large number of data and redraw it once.]
+The methods provide all sensible combinations of input data (either
+only y or x and y) and start and end indices of the arrays. 
+<p>
+The string argument refers to <code>Matlab</code>'s <b>LineSpec</b> properties 
+which specify<br> 
+<i>lineStyle</i> ("--" for dashed, ":" for dotted, see 
+{@link at.ofai.music.plot.PlottableObject#setLineStyle(String)}), <br>
+<i>marker</i> (e.g., "*", "o", "s", "." etc, see 
+{@link at.ofai.music.plot.Plot#setMarker(String)}, and <br>
+<i>color</i> (e.g., "r" for red etc, see {@link at.ofai.music.plot.Plot}).
+<p>
+[<b><i>Remark</i></b>: If you change lineStyle to other
+than solid or change lineWidth the graphics will invoke the stroke functions
+from {@link java.awt.Graphics2D} which might be slower than the normal 
+{@link java.awt.Graphics} plotting without calling any stroke properties.] 
+<p>
+You can also create different subplots within a figure (see {@link 
+at.ofai.music.plot.Figure#subplot(int, int, int)}) by calling
+<pre>
+fig.subplot(r, c, n);
+</pre>
+<p>
+<b>Interactive Zoom Functions</b><br>
+Press "Z" to change into the zoom mode and use the mouse for zooming 
+(left button for zooming in; right mouse button for resetting to 
+original view).<br>
+Press "H" to change to pan mode (indicated by a hand cursor). You can now
+drag the display as you like.<br>
+You might also use the four arrow keys and CTRL to translate or zoom the 
+individual axes or CTRL and "+" and "-" to zoom both axes
+(and "0" for setting the axes back to the original bounds); see
+{@link at.ofai.music.plot.Axes}.
+<p>
+<b>Exporting Printing</b><br>
+There are currently two options for printing/exporting:<br>
+<code>SHIFT + P</code> will open a print window, where you can choose a 
+printer (and an output file). (DISABLED IN THIS VERSION!)<br>
+<code>CTRL + P</code> will save the figure as an EPS file into a default
+file (that consist of the Figure's name) [this feature makes use of the 
+<a href="http://www.jibble.org/epsgraphics">org.jibble.epsgraphics</a> package 
+by Paul Mutton, licensed under GPL].
+<p>
+[<b><i>Remark</i></b>: printing subplots with <code>CTRL + P</code>
+is problematic, because currently it
+prints only the active subplot; use <code>SHIFT + P</code> instead.]
+<p>
+<b>TODOs:</b><br>
+<ul>
+	<li>Legend</li>
+	<li>MinorGrid bug at log scaling</li>
+</ul>
+Please contact me if you have suggestions or you want to contribute code.
+<p>
+@author Werner Goebl (goebl at mdw dot ac dot at)
+@version July 2014; (first version Nov. 18, 2005)
+</body>
