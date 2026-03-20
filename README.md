@@ -7,10 +7,10 @@ Simple and versatile 2D plot package for JAVA, inspired by the Matlab 2D plot fu
 
 ## How to use
 
-Place the plot.jar file in your classpath and import the package:
+Place the ```dist/plot.jar``` file in your classpath and import the package:
 
 ```java
-import goebl.plot.*;
+import at.ofai.music.wgplot.*;
 ```
 
 To load the test plot, just double click the ```plot.jar``` file and the test plot will be displayed. You can also run the test plot from the command line:
