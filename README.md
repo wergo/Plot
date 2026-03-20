@@ -1,9 +1,9 @@
 # Plot
 Simple and versatile 2D plot package for JAVA, inspired by the Matlab 2D plot functionality.
 
-<div style="text-align: center;">
-  <img src="Werner's Testplot.png" width="60%" alt="Testplot"/>
-</div>
+<p align="center">
+  <img src="Werner's Testplot.png" width="50%" alt="Testplot"/>
+</p>
 
 ## Package Description
 
@@ -13,7 +13,7 @@ Provides JAVA classes for various basic 2D plot functions, similar to the Matlab
 
 It implemented a similar hierarchy and very similar property commands as the Matlab implementation:
 
-<div style="text-align: center;">
+<div align="center">
 <p>Figure</br>
 |</br>
 Axes</br>
